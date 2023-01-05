@@ -77,7 +77,8 @@ public class SnapshotManager {
         new File(dir.get().getRoot(), c.getFilename()).toPath()).toString();
   }
 
-  public void installSnapshot(InstallSnapshotRequestProto request, StateMachine stateMachine) throws IOException {
+  public void installSnapshot(InstallSnapshotRequestProto request, StateMachine stateMachine, RaftStorageDirectory dir)
+      throws IOException {
     final InstallSnapshotRequestProto.SnapshotChunkProto snapshotChunkRequest = request.getSnapshotChunk();
     final long lastIncludedIndex = snapshotChunkRequest.getTermIndex().getIndex();
 
@@ -101,7 +102,7 @@ public class SnapshotManager {
       }
 
       final File tmpSnapshotFile = new File(tmpDir, getRelativePath.apply(chunk));
-      FileUtils.createDirectoriesDeleteExistingNonDirectory(tmpSnapshotFile.getParentFile());
+      FileUtils.createDirectories(tmpSnapshotFile);
 
       FileOutputStream out = null;
       try {
