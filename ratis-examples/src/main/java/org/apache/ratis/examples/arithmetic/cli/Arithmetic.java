@@ -18,7 +18,7 @@
 
 package org.apache.ratis.examples.arithmetic.cli;
 
-import org.apache.ratis.examples.common.SubCommandBase;
+import org.apache.ratis.examples.common.SubCommand;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +30,9 @@ public final class Arithmetic {
   private Arithmetic() {
   }
 
-  public static List<SubCommandBase> getSubCommands() {
-    List<SubCommandBase> commands = new ArrayList<>();
-    commands.add(new Server());
+  public static List<SubCommand> getSubCommands() {
+    List<SubCommand> commands = new ArrayList<>();
+    commands.add(new ArithmeticServer());
     commands.add(new Assign());
     commands.add(new Get());
     return commands;

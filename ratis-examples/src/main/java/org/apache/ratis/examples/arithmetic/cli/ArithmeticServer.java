@@ -21,7 +21,7 @@ import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 import org.apache.ratis.conf.RaftProperties;
 import org.apache.ratis.examples.arithmetic.ArithmeticStateMachine;
-import org.apache.ratis.examples.common.SubCommandBase;
+import org.apache.ratis.examples.common.SubCommand;
 import org.apache.ratis.grpc.GrpcConfigKeys;
 import org.apache.ratis.protocol.RaftGroup;
 import org.apache.ratis.protocol.RaftGroupId;
@@ -42,14 +42,12 @@ import java.util.concurrent.TimeUnit;
  * Class to start a ratis arithmetic example server.
  */
 @Parameters(commandDescription = "Start an arithmetic server")
-public class Server extends SubCommandBase {
+public class ArithmeticServer extends SubCommand {
 
-  @Parameter(names = {"--id",
-      "-i"}, description = "Raft id of this server", required = true)
+  @Parameter(names = {"--id", "-i"}, description = "Raft id of this server", required = true)
   private String id;
 
-  @Parameter(names = {"--storage",
-      "-s"}, description = "Storage dir", required = true)
+  @Parameter(names = {"--storage", "-s"}, description = "Storage dir", required = true)
   private File storageDir;
 
 
@@ -58,19 +56,18 @@ public class Server extends SubCommandBase {
     RaftPeerId peerId = RaftPeerId.valueOf(id);
     RaftProperties properties = new RaftProperties();
 
-    final int port = NetUtils.createSocketAddr(getPeer(peerId).getAddress()).getPort();
+    final int port = NetUtils.createSocketAddr(getRaftPeer(peerId).getAddress()).getPort();
     GrpcConfigKeys.Server.setPort(properties, port);
 
-    Optional.ofNullable(getPeer(peerId).getClientAddress()).ifPresent(address ->
+    Optional.ofNullable(getRaftPeer(peerId).getClientAddress()).ifPresent(address ->
         GrpcConfigKeys.Client.setPort(properties, NetUtils.createSocketAddr(address).getPort()));
-    Optional.ofNullable(getPeer(peerId).getAdminAddress()).ifPresent(address ->
+    Optional.ofNullable(getRaftPeer(peerId).getAdminAddress()).ifPresent(address ->
         GrpcConfigKeys.Admin.setPort(properties, NetUtils.createSocketAddr(address).getPort()));
 
     RaftServerConfigKeys.setStorageDir(properties, Collections.singletonList(storageDir));
     StateMachine stateMachine = new ArithmeticStateMachine();
 
-    final RaftGroup raftGroup = RaftGroup.valueOf(RaftGroupId.valueOf(ByteString.copyFromUtf8(getRaftGroupId())),
-            getPeers());
+     RaftGroup raftGroup = RaftGroup.valueOf(RaftGroupId.valueOf(ByteString.copyFromUtf8(raftGroupId)), raftPeers);
     RaftServer raftServer = RaftServer.newBuilder()
         .setServerId(RaftPeerId.valueOf(id))
         .setStateMachine(stateMachine).setProperties(properties)

@@ -31,16 +31,16 @@ import java.io.IOException;
  * Subcommand to get value from the state machine.
  */
 @Parameters(commandDescription = "Assign value to a variable.")
-public class Get extends Client {
+public class Get extends ArithmeticClientSubCommand {
 
   @Parameter(names = {
       "--name"}, description = "Name of the variable to set", required = true)
   private String name;
 
   @Override
-  protected void operation(RaftClient client) throws IOException {
+  protected void operation(RaftClient raftClient) throws IOException {
     RaftClientReply getValue =
-        client.io().sendReadOnly(Expression.Utils.toMessage(new Variable(name)));
+        raftClient.io().sendReadOnly(Expression.Utils.toMessage(new Variable(name)));
     Expression response =
         Expression.Utils.bytes2Expression(getValue.getMessage().getContent().toByteArray(), 0);
     System.out.println(String.format("%s=%s", name, (DoubleValue) response).toString());

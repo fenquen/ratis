@@ -34,12 +34,12 @@ The source code is located in
 
 #### FileStore Server
 To spawn a FileStore server, run
-* `server.sh filestore server --id <SELF_ID> --storage <STORAGE_DIR> --peers <ID:IP_ADDRESS,...>`
+* `server.sh filestore server --id <SELF_ID> --storage <STORAGE_DIR> --peers <ID冒号IP_ADDRESS,...>`
 
 where
 * `<SELF_ID>`, which must be in the peer list, is the ID of the instance being spawned,
 * `<STORAGE_DIR>` is a local directory for storing Raft log and other data, and
-* `<ID:IP_ADDRESS,...>`, which is a comma separated list of ID and IP address pairs, specifies the list of server peers.
+* `<ID 冒号 IP_ADDRESS,...>`, which is a comma separated list of ID and IP address pairs, specifies the list of server peers.
 
 Note that when multiple servers running at the same host, they must use different `<STORAGE_DIR>`.
 
@@ -48,9 +48,14 @@ For example,
     BIN=ratis-examples/src/main/bin
     PEERS=n0:127.0.0.1:6000,n1:127.0.0.1:6001,n2:127.0.0.1:6002
 
-    ID=n0; ${BIN}/server.sh filestore server --id ${ID} --storage /tmp/ratis/${ID} --peers ${PEERS}
-    ID=n1; ${BIN}/server.sh filestore server --id ${ID} --storage /tmp/ratis/${ID} --peers ${PEERS}
-    ID=n2; ${BIN}/server.sh filestore server --id ${ID} --storage /tmp/ratis/${ID} --peers ${PEERS}
+    ID=n0
+    ${BIN}/server.sh filestore server --id ${ID} --storage /tmp/ratis/${ID} --peers ${PEERS}
+    
+    ID=n1
+    ${BIN}/server.sh filestore server --id ${ID} --storage /tmp/ratis/${ID} --peers ${PEERS}
+
+    ID=n2
+    ${BIN}/server.sh filestore server --id ${ID} --storage /tmp/ratis/${ID} --peers ${PEERS}
 
 #### FileStore Client
 
@@ -135,9 +140,9 @@ You can find more detail by reading these classes javaDocs.
 
 ### Run Counter Server and Client
 run the client and servers by these commands from ratis-examples directory:
-for server: `java -cp target/*.jar org.apache.ratis.examples.counter.server.CounterServer {serverIndex}`
+for server: `java -cp target/*.jar org.apache.ratis.examples.counter.CounterServer {serverIndex}`
 replace {serverIndex} with 1, 2, or 3
-for client: `java -cp target/*.jar org.apache.ratis.examples.counter.client.CounterClient`
+for client: `java -cp target/*.jar org.apache.ratis.examples.counter.CounterClient`
 
 ## Pre-Setup Vagrant Pseudo Cluster
 Note: This option is only available to Example 1 and 2

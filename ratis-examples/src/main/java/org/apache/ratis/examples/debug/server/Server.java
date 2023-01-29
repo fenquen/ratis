@@ -19,7 +19,7 @@
 package org.apache.ratis.examples.debug.server;
 
 import org.apache.ratis.examples.common.Constants;
-import org.apache.ratis.examples.counter.server.CounterServer;
+import org.apache.ratis.examples.counter.CounterServer;
 import org.apache.ratis.protocol.RaftPeer;
 
 import java.io.File;

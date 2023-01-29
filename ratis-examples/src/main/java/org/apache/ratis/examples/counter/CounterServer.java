@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.ratis.examples.counter.server;
+package org.apache.ratis.examples.counter;
 
 import org.apache.ratis.conf.RaftProperties;
 import org.apache.ratis.examples.common.Constants;
@@ -95,7 +95,7 @@ public final class CounterServer implements Closeable {
       System.err.println();
       System.err.println("args = " + Arrays.toString(args));
       System.err.println();
-      System.err.println("Usage: java org.apache.ratis.examples.counter.server.CounterServer peer_index");
+      System.err.println("Usage: java org.apache.ratis.examples.counter.CounterServer peer_index");
       System.err.println();
       System.err.println("       peer_index must be 0, 1 or 2");
       System.exit(1);

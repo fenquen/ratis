@@ -39,7 +39,7 @@ import java.util.regex.Pattern;
  * Subcommand to assign new value in arithmetic state machine.
  */
 @Parameters(commandDescription = "Assign value to a variable.")
-public class Assign extends Client {
+public class Assign extends ArithmeticClientSubCommand {
 
   private static final Pattern NUMBER_PATTERN = Pattern.compile("\\d+|\\d*\\.\\d+");
   private static final String VARIABLE_OR_NUMBER = String.format("(%s|%s)", NUMBER_PATTERN, Variable.PATTERN.pattern());
@@ -55,8 +55,8 @@ public class Assign extends Client {
   private String value;
 
   @Override
-  protected void operation(RaftClient client) throws IOException {
-    RaftClientReply send = client.io().send(
+  protected void operation(RaftClient raftClient) throws IOException {
+    RaftClientReply send = raftClient.io().send(
         new AssignmentMessage(new Variable(name), createExpression(value)));
     System.out.println("Success: " + send.isSuccess());
     System.out.println("Response: " + send.getMessage().getClass());

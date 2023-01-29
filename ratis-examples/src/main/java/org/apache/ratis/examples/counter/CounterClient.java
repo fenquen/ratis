@@ -15,12 +15,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.ratis.examples.counter.client;
+package org.apache.ratis.examples.counter;
 
 import org.apache.ratis.client.RaftClient;
 import org.apache.ratis.conf.RaftProperties;
 import org.apache.ratis.examples.common.Constants;
-import org.apache.ratis.examples.counter.CounterCommand;
 import org.apache.ratis.protocol.RaftClientReply;
 
 import java.io.Closeable;
@@ -103,7 +102,7 @@ public final class CounterClient implements Closeable {
       System.err.println();
       System.err.println("args = " + Arrays.toString(args));
       System.err.println();
-      System.err.println("Usage: java org.apache.ratis.examples.counter.client.CounterClient [increment] [async|io]");
+      System.err.println("Usage: java org.apache.ratis.examples.counter.CounterClient [increment] [async|io]");
       System.err.println();
       System.err.println("       increment: the number of INCREMENT commands to be sent (default is 10)");
       System.err.println("       async    : use the AsyncApi (default)");

@@ -50,184 +50,186 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
 import java.util.function.Function;
 
-/** A standalone server using raft with a configurable state machine. */
+/**
+ * A standalone server using raft with a configurable state machine.
+ */
 public class FileStoreClient implements Closeable {
-  public static final Logger LOG = LoggerFactory.getLogger(FileStoreClient.class);
+    public static final Logger LOG = LoggerFactory.getLogger(FileStoreClient.class);
 
-  private final RaftClient client;
+    private final RaftClient client;
 
-  public FileStoreClient(RaftGroup group, RaftProperties properties)
-      throws IOException {
-    this.client = RaftClient.newBuilder()
-        .setProperties(properties)
-        .setRaftGroup(group)
-        .build();
-  }
-
-  public FileStoreClient(RaftGroup group, RaftProperties properties, RaftPeer primaryDataStreamServer)
-      throws IOException {
-    this.client = RaftClient.newBuilder()
-        .setProperties(properties)
-        .setRaftGroup(group)
-        .setPrimaryDataStreamServer(primaryDataStreamServer)
-        .build();
-  }
-
-  public FileStoreClient(RaftClient client) {
-    this.client = client;
-  }
-
-  @Override
-  public void close() throws IOException {
-    client.close();
-  }
-
-  static ByteString send(
-      Message request, CheckedFunction<Message, RaftClientReply, IOException> sendFunction)
-      throws IOException {
-    final RaftClientReply reply = sendFunction.apply(request);
-    final StateMachineException sme = reply.getStateMachineException();
-    if (sme != null) {
-      throw new IOException("Failed to send request " + request, sme);
+    public FileStoreClient(RaftGroup group, RaftProperties properties)
+            throws IOException {
+        this.client = RaftClient.newBuilder()
+                .setProperties(properties)
+                .setRaftGroup(group)
+                .build();
     }
-    Preconditions.assertTrue(reply.isSuccess(), () -> "Failed " + request + ", reply=" + reply);
-    return reply.getMessage().getContent();
-  }
 
-  static CompletableFuture<ByteString> sendAsync(
-      Message request, Function<Message, CompletableFuture<RaftClientReply>> sendFunction) {
-    return sendFunction.apply(request).thenApply(reply -> {
-      final StateMachineException sme = reply.getStateMachineException();
-      if (sme != null) {
-        throw new CompletionException("Failed to send request " + request, sme);
-      }
-      Preconditions.assertTrue(reply.isSuccess(), () -> "Failed " + request + ", reply=" + reply);
-      return reply.getMessage().getContent();
-    });
-  }
+    public FileStoreClient(RaftGroup group, RaftProperties properties, RaftPeer primaryDataStreamServer)
+            throws IOException {
+        this.client = RaftClient.newBuilder()
+                .setProperties(properties)
+                .setRaftGroup(group)
+                .setPrimaryDataStreamServer(primaryDataStreamServer)
+                .build();
+    }
 
-  private ByteString send(Message request) throws IOException {
-    return send(request, client.io()::send);
-  }
+    public FileStoreClient(RaftClient client) {
+        this.client = client;
+    }
 
-  private ByteString sendReadOnly(Message request) throws IOException {
-    return send(request, client.io()::sendReadOnly);
-  }
+    @Override
+    public void close() throws IOException {
+        client.close();
+    }
 
-  private CompletableFuture<ByteString> sendAsync(Message request) {
-    return sendAsync(request, client.async()::send);
-  }
+    static ByteString send(
+            Message request, CheckedFunction<Message, RaftClientReply, IOException> sendFunction)
+            throws IOException {
+        final RaftClientReply reply = sendFunction.apply(request);
+        final StateMachineException sme = reply.getStateMachineException();
+        if (sme != null) {
+            throw new IOException("Failed to send request " + request, sme);
+        }
+        Preconditions.assertTrue(reply.isSuccess(), () -> "Failed " + request + ", reply=" + reply);
+        return reply.getMessage().getContent();
+    }
 
-  private CompletableFuture<ByteString> sendReadOnlyAsync(Message request) {
-    return sendAsync(request, client.async()::sendReadOnly);
-  }
+    static CompletableFuture<ByteString> sendAsync(
+            Message request, Function<Message, CompletableFuture<RaftClientReply>> sendFunction) {
+        return sendFunction.apply(request).thenApply(reply -> {
+            final StateMachineException sme = reply.getStateMachineException();
+            if (sme != null) {
+                throw new CompletionException("Failed to send request " + request, sme);
+            }
+            Preconditions.assertTrue(reply.isSuccess(), () -> "Failed " + request + ", reply=" + reply);
+            return reply.getMessage().getContent();
+        });
+    }
 
-  public ByteString read(String path, long offset, long length) throws IOException {
-    final ByteString reply = readImpl(this::sendReadOnly, path, offset, length);
-    return ReadReplyProto.parseFrom(reply).getData();
-  }
+    private ByteString send(Message request) throws IOException {
+        return send(request, client.io()::send);
+    }
 
-  public CompletableFuture<ByteString> readAsync(String path, long offset, long length) {
-    return readImpl(this::sendReadOnlyAsync, path, offset, length
-    ).thenApply(reply -> JavaUtils.supplyAndWrapAsCompletionException(
-        () -> ReadReplyProto.parseFrom(reply).getData()));
-  }
+    private ByteString sendReadOnly(Message request) throws IOException {
+        return send(request, client.io()::sendReadOnly);
+    }
 
-  private static <OUTPUT, THROWABLE extends Throwable> OUTPUT readImpl(
-      CheckedFunction<Message, OUTPUT, THROWABLE> sendReadOnlyFunction,
-      String path, long offset, long length) throws THROWABLE {
-    final ReadRequestProto read = ReadRequestProto.newBuilder()
-        .setPath(ProtoUtils.toByteString(path))
-        .setOffset(offset)
-        .setLength(length)
-        .build();
+    private CompletableFuture<ByteString> sendAsync(Message request) {
+        return sendAsync(request, client.async()::send);
+    }
 
-    return sendReadOnlyFunction.apply(Message.valueOf(read));
-  }
+    private CompletableFuture<ByteString> sendReadOnlyAsync(Message request) {
+        return sendAsync(request, client.async()::sendReadOnly);
+    }
 
-  private CompletableFuture<ByteString> sendWatchAsync(Message request) {
-    return sendAsync(request, client.async()::sendReadOnlyUnordered);
-  }
+    public ByteString read(String path, long offset, long length) throws IOException {
+        final ByteString reply = readImpl(this::sendReadOnly, path, offset, length);
+        return ReadReplyProto.parseFrom(reply).getData();
+    }
 
-  /**
-   * Watch the path until it is created.
-   */
-  public CompletableFuture<ReadReplyProto> watchAsync(String path) {
-    return watchImpl(this::sendWatchAsync, path)
-        .thenApply(reply -> JavaUtils.supplyAndWrapAsCompletionException(
-            () -> ReadReplyProto.parseFrom(reply)));
-  }
+    public CompletableFuture<ByteString> readAsync(String path, long offset, long length) {
+        return readImpl(this::sendReadOnlyAsync, path, offset, length
+        ).thenApply(reply -> JavaUtils.supplyAndWrapAsCompletionException(
+                () -> ReadReplyProto.parseFrom(reply).getData()));
+    }
 
-  private static <OUTPUT, THROWABLE extends Throwable> OUTPUT watchImpl(
-      CheckedFunction<Message, OUTPUT, THROWABLE> sendWatchFunction,
-      String path) throws THROWABLE {
-    final ReadRequestProto watch = ReadRequestProto.newBuilder()
-        .setPath(ProtoUtils.toByteString(path))
-        .setIsWatch(true)
-        .build();
+    private static <OUTPUT, THROWABLE extends Throwable> OUTPUT readImpl(
+            CheckedFunction<Message, OUTPUT, THROWABLE> sendReadOnlyFunction,
+            String path, long offset, long length) throws THROWABLE {
+        final ReadRequestProto read = ReadRequestProto.newBuilder()
+                .setPath(ProtoUtils.toByteString(path))
+                .setOffset(offset)
+                .setLength(length)
+                .build();
 
-    return sendWatchFunction.apply(Message.valueOf(watch));
-  }
+        return sendReadOnlyFunction.apply(Message.valueOf(read));
+    }
 
-  public long write(String path, long offset, boolean close, ByteBuffer buffer, boolean sync)
-      throws IOException {
-    final int chunkSize = FileStoreCommon.getChunkSize(buffer.remaining());
-    buffer.limit(chunkSize);
-    final ByteString reply = writeImpl(this::send, path, offset, close, buffer, sync);
-    return WriteReplyProto.parseFrom(reply).getLength();
-  }
+    private CompletableFuture<ByteString> sendWatchAsync(Message request) {
+        return sendAsync(request, client.async()::sendReadOnlyUnordered);
+    }
 
-  public DataStreamOutput getStreamOutput(String path, long dataSize, RoutingTable routingTable) {
-    final StreamWriteRequestProto header = StreamWriteRequestProto.newBuilder()
-        .setPath(ProtoUtils.toByteString(path))
-        .setLength(dataSize)
-        .build();
-    final FileStoreRequestProto request = FileStoreRequestProto.newBuilder().setStream(header).build();
-    return client.getDataStreamApi().stream(request.toByteString().asReadOnlyByteBuffer(), routingTable);
-  }
+    /**
+     * Watch the path until it is created.
+     */
+    public CompletableFuture<ReadReplyProto> watchAsync(String path) {
+        return watchImpl(this::sendWatchAsync, path)
+                .thenApply(reply -> JavaUtils.supplyAndWrapAsCompletionException(
+                        () -> ReadReplyProto.parseFrom(reply)));
+    }
 
-  public CompletableFuture<Long> writeAsync(String path, long offset, boolean close, ByteBuffer buffer, boolean sync) {
-    return writeImpl(this::sendAsync, path, offset, close, buffer, sync
-    ).thenApply(reply -> JavaUtils.supplyAndWrapAsCompletionException(
-        () -> WriteReplyProto.parseFrom(reply).getLength()));
-  }
+    private static <OUTPUT, THROWABLE extends Throwable> OUTPUT watchImpl(
+            CheckedFunction<Message, OUTPUT, THROWABLE> sendWatchFunction,
+            String path) throws THROWABLE {
+        final ReadRequestProto watch = ReadRequestProto.newBuilder()
+                .setPath(ProtoUtils.toByteString(path))
+                .setIsWatch(true)
+                .build();
 
-  private static <OUTPUT, THROWABLE extends Throwable> OUTPUT writeImpl(
-      CheckedFunction<Message, OUTPUT, THROWABLE> sendFunction,
-      String path, long offset, boolean close, ByteBuffer data, boolean sync)
-      throws THROWABLE {
-    final WriteRequestHeaderProto.Builder header = WriteRequestHeaderProto.newBuilder()
-        .setPath(ProtoUtils.toByteString(path))
-        .setOffset(offset)
-        .setLength(data.remaining())
-        .setClose(close)
-        .setSync(sync);
+        return sendWatchFunction.apply(Message.valueOf(watch));
+    }
 
-    final WriteRequestProto.Builder write = WriteRequestProto.newBuilder()
-        .setHeader(header)
-        .setData(ByteString.copyFrom(data));
+    public long write(String path, long offset, boolean close, ByteBuffer buffer, boolean sync)
+            throws IOException {
+        final int chunkSize = FileStoreCommon.getChunkSize(buffer.remaining());
+        buffer.limit(chunkSize);
+        final ByteString reply = writeImpl(this::send, path, offset, close, buffer, sync);
+        return WriteReplyProto.parseFrom(reply).getLength();
+    }
 
-    final FileStoreRequestProto request = FileStoreRequestProto.newBuilder().setWrite(write).build();
-    return sendFunction.apply(Message.valueOf(request));
-  }
+    public DataStreamOutput getStreamOutput(String path, long dataSize, RoutingTable routingTable) {
+        final StreamWriteRequestProto header = StreamWriteRequestProto.newBuilder()
+                .setPath(ProtoUtils.toByteString(path))
+                .setLength(dataSize)
+                .build();
+        final FileStoreRequestProto request = FileStoreRequestProto.newBuilder().setStream(header).build();
+        return client.getDataStreamApi().stream(request.toByteString().asReadOnlyByteBuffer(), routingTable);
+    }
 
-  private static <OUTPUT, THROWABLE extends Throwable> OUTPUT deleteImpl(
-      CheckedFunction<Message, OUTPUT, THROWABLE> sendFunction, String path)
-      throws THROWABLE {
-    final DeleteRequestProto.Builder delete = DeleteRequestProto.newBuilder()
-        .setPath(ProtoUtils.toByteString(path));
-    final FileStoreRequestProto request = FileStoreRequestProto.newBuilder().setDelete(delete).build();
-    return sendFunction.apply(Message.valueOf(request));
-  }
+    public CompletableFuture<Long> writeAsync(String path, long offset, boolean close, ByteBuffer buffer, boolean sync) {
+        return writeImpl(this::sendAsync, path, offset, close, buffer, sync
+        ).thenApply(reply -> JavaUtils.supplyAndWrapAsCompletionException(
+                () -> WriteReplyProto.parseFrom(reply).getLength()));
+    }
 
-  public String delete(String path) throws IOException {
-    final ByteString reply = deleteImpl(this::send, path);
-    return DeleteReplyProto.parseFrom(reply).getResolvedPath().toStringUtf8();
-  }
+    private static <OUTPUT, THROWABLE extends Throwable> OUTPUT writeImpl(
+            CheckedFunction<Message, OUTPUT, THROWABLE> sendFunction,
+            String path, long offset, boolean close, ByteBuffer data, boolean sync)
+            throws THROWABLE {
+        final WriteRequestHeaderProto.Builder header = WriteRequestHeaderProto.newBuilder()
+                .setPath(ProtoUtils.toByteString(path))
+                .setOffset(offset)
+                .setLength(data.remaining())
+                .setClose(close)
+                .setSync(sync);
 
-  public CompletableFuture<String> deleteAsync(String path) {
-    return deleteImpl(this::sendAsync, path
-    ).thenApply(reply -> JavaUtils.supplyAndWrapAsCompletionException(
-        () -> DeleteReplyProto.parseFrom(reply).getResolvedPath().toStringUtf8()));
-  }
+        final WriteRequestProto.Builder write = WriteRequestProto.newBuilder()
+                .setHeader(header)
+                .setData(ByteString.copyFrom(data));
+
+        final FileStoreRequestProto request = FileStoreRequestProto.newBuilder().setWrite(write).build();
+        return sendFunction.apply(Message.valueOf(request));
+    }
+
+    private static <OUTPUT, THROWABLE extends Throwable> OUTPUT deleteImpl(
+            CheckedFunction<Message, OUTPUT, THROWABLE> sendFunction, String path)
+            throws THROWABLE {
+        final DeleteRequestProto.Builder delete = DeleteRequestProto.newBuilder()
+                .setPath(ProtoUtils.toByteString(path));
+        final FileStoreRequestProto request = FileStoreRequestProto.newBuilder().setDelete(delete).build();
+        return sendFunction.apply(Message.valueOf(request));
+    }
+
+    public String delete(String path) throws IOException {
+        final ByteString reply = deleteImpl(this::send, path);
+        return DeleteReplyProto.parseFrom(reply).getResolvedPath().toStringUtf8();
+    }
+
+    public CompletableFuture<String> deleteAsync(String path) {
+        return deleteImpl(this::sendAsync, path
+        ).thenApply(reply -> JavaUtils.supplyAndWrapAsCompletionException(
+                () -> DeleteReplyProto.parseFrom(reply).getResolvedPath().toStringUtf8()));
+    }
 }

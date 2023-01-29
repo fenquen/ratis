@@ -40,41 +40,39 @@ import java.util.UUID;
  * Constants across servers and clients
  */
 public final class Constants {
-  public static final List<RaftPeer> PEERS;
-  public static final String PATH;
+    public static final List<RaftPeer> PEERS;
+    public static final String PATH;
 
-  static {
-    final Properties properties = new Properties();
-    final String conf = "ratis-examples/src/main/resources/conf.properties";
-    try(InputStream inputStream = new FileInputStream(conf);
-        Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-        BufferedReader bufferedReader = new BufferedReader(reader)) {
-      properties.load(bufferedReader);
-    } catch (IOException e) {
-      throw new IllegalStateException("Failed to load " + conf, e);
+    static {
+        Properties properties = new Properties();
+        String conf = "ratis-examples/src/main/resources/conf.properties";
+
+        try (InputStream inputStream = new FileInputStream(conf);
+             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+            properties.load(bufferedReader);
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to load " + conf, e);
+        }
+
+        String[] addresses = Optional.ofNullable(properties.getProperty("raft.server.address.list")).map(s -> s.split(",")).orElse(null);
+        if (addresses == null || addresses.length == 0) {
+            throw new IllegalArgumentException("Failed to get raft.server.address.list from " + conf);
+        }
+
+         String key1 = "raft.server.root.storage.path";
+         String path = properties.getProperty(key1);
+        PATH = path == null ? "./ratis-examples/target" : path;
+        final List<RaftPeer> peers = new ArrayList<>(addresses.length);
+        for (int i = 0; i < addresses.length; i++) {
+            peers.add(RaftPeer.newBuilder().setId("n" + i).setAddress(addresses[i]).build());
+        }
+        PEERS = Collections.unmodifiableList(peers);
     }
-    final String key = "raft.server.address.list";
-    final String[] addresses = Optional.ofNullable(properties.getProperty(key))
-        .map(s -> s.split(","))
-        .orElse(null);
-    if (addresses == null || addresses.length == 0) {
-      throw new IllegalArgumentException("Failed to get " + key + " from " + conf);
+
+    private static final UUID GROUP_ID = UUID.fromString("02511d47-d67c-49a3-9011-abb3109a44c1");
+
+    public static final RaftGroup RAFT_GROUP = RaftGroup.valueOf(RaftGroupId.valueOf(Constants.GROUP_ID), PEERS);
+
+    private Constants() {
     }
-
-    final String key1 = "raft.server.root.storage.path";
-    final String path = properties.getProperty(key1);
-    PATH = path == null ? "./ratis-examples/target" : path;
-    final List<RaftPeer> peers = new ArrayList<>(addresses.length);
-    for (int i = 0; i < addresses.length; i++) {
-      peers.add(RaftPeer.newBuilder().setId("n" + i).setAddress(addresses[i]).build());
-    }
-    PEERS = Collections.unmodifiableList(peers);
-  }
-
-  private static final UUID GROUP_ID = UUID.fromString("02511d47-d67c-49a3-9011-abb3109a44c1");
-
-  public static final RaftGroup RAFT_GROUP = RaftGroup.valueOf(RaftGroupId.valueOf(Constants.GROUP_ID), PEERS);
-
-  private Constants() {
-  }
 }

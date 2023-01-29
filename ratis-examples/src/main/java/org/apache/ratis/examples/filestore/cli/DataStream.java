@@ -20,7 +20,6 @@ package org.apache.ratis.examples.filestore.cli;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 import org.apache.ratis.client.api.DataStreamOutput;
-import org.apache.ratis.examples.filestore.FileStoreClient;
 import org.apache.ratis.io.StandardWriteOption;
 import org.apache.ratis.protocol.DataStreamReply;
 import org.apache.ratis.protocol.RoutingTable;
@@ -48,10 +47,10 @@ import java.util.concurrent.Executors;
 import java.util.function.BiFunction;
 
 /**
- * Subcommand to generate load in filestore data stream state machine.
+ * Subcommand to generate load in file store data stream state machine.
  */
 @Parameters(commandDescription = "Load Generator for FileStore DataStream")
-public class DataStream extends Client {
+public class DataStream extends FileStoreClient {
   enum Type {
     DirectByteBuffer(DirectByteBufferType::new),
     MappedByteBuffer(MappedByteBufferType::new),
@@ -113,7 +112,7 @@ public class DataStream extends Client {
   }
 
   @Override
-  protected void operation(List<FileStoreClient> clients) throws IOException, ExecutionException, InterruptedException {
+  protected void operation(List<org.apache.ratis.examples.filestore.FileStoreClient> clients) throws Exception {
     if (!checkParam()) {
       stop(clients);
     }
@@ -123,7 +122,7 @@ public class DataStream extends Client {
     dropCache();
     System.out.println("Starting DataStream write now ");
 
-    RoutingTable routingTable = getRoutingTable(Arrays.asList(getPeers()), getPrimary());
+    RoutingTable routingTable = getRoutingTable(Arrays.asList(raftPeers), getPrimary());
     long startTime = System.currentTimeMillis();
 
     long totalWrittenBytes = waitStreamFinish(streamWrite(paths, clients, routingTable, executor));
@@ -139,14 +138,14 @@ public class DataStream extends Client {
   }
 
   private Map<String, CompletableFuture<List<CompletableFuture<DataStreamReply>>>> streamWrite(
-      List<String> paths, List<FileStoreClient> clients, RoutingTable routingTable,
-      ExecutorService executor) {
+          List<String> paths, List<org.apache.ratis.examples.filestore.FileStoreClient> clients, RoutingTable routingTable,
+          ExecutorService executor) {
     Map<String, CompletableFuture<List<CompletableFuture<DataStreamReply>>>> fileMap = new HashMap<>();
 
     int clientIndex = 0;
     for(String path : paths) {
       final CompletableFuture<List<CompletableFuture<DataStreamReply>>> future = new CompletableFuture<>();
-      final FileStoreClient client = clients.get(clientIndex % clients.size());
+      final org.apache.ratis.examples.filestore.FileStoreClient client = clients.get(clientIndex % clients.size());
       clientIndex ++;
       CompletableFuture.supplyAsync(() -> {
         File file = new File(path);
@@ -231,7 +230,7 @@ public class DataStream extends Client {
     }
 
     List<CompletableFuture<DataStreamReply>> transfer(
-        FileStoreClient client, RoutingTable routingTable) throws IOException {
+            org.apache.ratis.examples.filestore.FileStoreClient client, RoutingTable routingTable) throws IOException {
       if (fileSize <= 0) {
         return Collections.emptyList();
       }

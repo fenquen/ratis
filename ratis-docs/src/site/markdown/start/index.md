@@ -471,7 +471,7 @@ public final class CounterServer implements Closeable {
 Now we are ready to start our `CounterServer` peers and form a raft group.
 The command is:
 ```shell
-java org.apache.ratis.examples.counter.server.CounterServer peer_index
+java org.apache.ratis.examples.counter.CounterServer peer_index
 ```
 The argument `peer_index` must be 0, 1 or 2.
 

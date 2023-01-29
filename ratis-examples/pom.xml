@@ -141,7 +141,7 @@
               <shadedArtifactAttached>true</shadedArtifactAttached>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>org.apache.ratis.examples.common.Runner</mainClass>
+                  <mainClass>org.apache.ratis.examples.Runner</mainClass>
                 </transformer>
               </transformers>
               <filters>
