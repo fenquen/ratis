@@ -1,25 +1,9 @@
-/**
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package org.apache.ratis.examples.filestore.cli;
+package org.apache.ratis.examples.filestore.client;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 import org.apache.ratis.client.api.DataStreamOutput;
+import org.apache.ratis.examples.filestore.FileStoreCommon;
 import org.apache.ratis.io.StandardWriteOption;
 import org.apache.ratis.protocol.DataStreamReply;
 import org.apache.ratis.protocol.RoutingTable;
@@ -50,7 +34,7 @@ import java.util.function.BiFunction;
  * Subcommand to generate load in file store data stream state machine.
  */
 @Parameters(commandDescription = "Load Generator for FileStore DataStream")
-public class DataStream extends FileStoreClient {
+public class DataStream extends FileStoreClientSubCommand {
   enum Type {
     DirectByteBuffer(DirectByteBufferType::new),
     MappedByteBuffer(MappedByteBufferType::new),
@@ -98,7 +82,7 @@ public class DataStream extends FileStoreClient {
   }
 
   private boolean checkParam() {
-    if (syncSize != -1 && syncSize % getBufferSizeInBytes() != 0) {
+    if (syncSize != -1 && syncSize % bufferSizeInBytes != 0) {
       System.err.println("Error: syncSize % bufferSize should be zero");
       return false;
     }
@@ -112,46 +96,46 @@ public class DataStream extends FileStoreClient {
   }
 
   @Override
-  protected void operation(List<org.apache.ratis.examples.filestore.FileStoreClient> clients) throws Exception {
+  protected void operation(List<FileStoreClient> fileStoreClientList) throws Exception {
     if (!checkParam()) {
-      stop(clients);
+      stop(fileStoreClientList);
     }
 
     final ExecutorService executor = Executors.newFixedThreadPool(getNumThread());
-    List<String> paths = generateFiles(executor);
-    dropCache();
+    List<String> paths = generateLocalFiles(executor);
+    FileStoreCommon.dropCache();
     System.out.println("Starting DataStream write now ");
 
     RoutingTable routingTable = getRoutingTable(Arrays.asList(raftPeers), getPrimary());
     long startTime = System.currentTimeMillis();
 
-    long totalWrittenBytes = waitStreamFinish(streamWrite(paths, clients, routingTable, executor));
+    long totalWrittenBytes = waitStreamFinish(streamWrite(paths, fileStoreClientList, routingTable, executor));
 
     long endTime = System.currentTimeMillis();
 
     System.out.println("Total files written: " + getNumFiles());
-    System.out.println("Each files size: " + getFileSizeInBytes());
+    System.out.println("Each files size: " + getFileSizeInByte());
     System.out.println("Total data written: " + totalWrittenBytes + " bytes");
     System.out.println("Total time taken: " + (endTime - startTime) + " millis");
 
-    stop(clients);
+    stop(fileStoreClientList);
   }
 
   private Map<String, CompletableFuture<List<CompletableFuture<DataStreamReply>>>> streamWrite(
-          List<String> paths, List<org.apache.ratis.examples.filestore.FileStoreClient> clients, RoutingTable routingTable,
+          List<String> paths, List<FileStoreClient> clients, RoutingTable routingTable,
           ExecutorService executor) {
     Map<String, CompletableFuture<List<CompletableFuture<DataStreamReply>>>> fileMap = new HashMap<>();
 
     int clientIndex = 0;
     for(String path : paths) {
       final CompletableFuture<List<CompletableFuture<DataStreamReply>>> future = new CompletableFuture<>();
-      final org.apache.ratis.examples.filestore.FileStoreClient client = clients.get(clientIndex % clients.size());
+      final FileStoreClient client = clients.get(clientIndex % clients.size());
       clientIndex ++;
       CompletableFuture.supplyAsync(() -> {
         File file = new File(path);
         final long fileLength = file.length();
-        Preconditions.assertTrue(fileLength == getFileSizeInBytes(), "Unexpected file size: expected size is "
-            + getFileSizeInBytes() + " but actual size is " + fileLength);
+        Preconditions.assertTrue(fileLength == getFileSizeInByte(), "Unexpected file size: expected size is "
+            + getFileSizeInByte() + " but actual size is " + fileLength);
 
         final Type type = Optional.ofNullable(Type.valueOfIgnoreCase(dataStreamType))
             .orElseThrow(IllegalStateException::new);
@@ -178,8 +162,8 @@ public class DataStream extends FileStoreClient {
         writtenLen += future.join().getBytesWritten();
       }
 
-      if (writtenLen != getFileSizeInBytes()) {
-        System.out.println("File written:" + writtenLen + " does not match expected:" + getFileSizeInBytes());
+      if (writtenLen != getFileSizeInByte()) {
+        System.out.println("File written:" + writtenLen + " does not match expected:" + getFileSizeInByte());
       }
 
       totalBytes += writtenLen;
@@ -198,7 +182,7 @@ public class DataStream extends FileStoreClient {
     TransferType(String path, DataStream cli) {
       this.path = path;
       this.file = new File(path);
-      this.fileSize = cli.getFileSizeInBytes();
+      this.fileSize = cli.getFileSizeInByte();
       this.bufferSize = cli.getBufferSizeInBytes();
       this.syncSize = cli.getSyncSize();
 
@@ -230,7 +214,7 @@ public class DataStream extends FileStoreClient {
     }
 
     List<CompletableFuture<DataStreamReply>> transfer(
-            org.apache.ratis.examples.filestore.FileStoreClient client, RoutingTable routingTable) throws IOException {
+            FileStoreClient client, RoutingTable routingTable) throws IOException {
       if (fileSize <= 0) {
         return Collections.emptyList();
       }

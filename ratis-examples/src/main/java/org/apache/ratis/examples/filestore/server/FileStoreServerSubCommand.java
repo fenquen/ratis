@@ -1,4 +1,4 @@
-package org.apache.ratis.examples.filestore.cli;
+package org.apache.ratis.examples.filestore.server;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
@@ -8,7 +8,6 @@ import org.apache.ratis.conf.RaftProperties;
 import org.apache.ratis.datastream.SupportedDataStreamType;
 import org.apache.ratis.examples.common.SubCommand;
 import org.apache.ratis.examples.filestore.FileStoreCommon;
-import org.apache.ratis.examples.filestore.FileStoreStateMachine;
 import org.apache.ratis.grpc.GrpcConfigKeys;
 import org.apache.ratis.metrics.JVMMetrics;
 import org.apache.ratis.netty.NettyConfigKeys;
@@ -34,7 +33,7 @@ import java.util.concurrent.TimeUnit;
  * Class to start a ratis filestore example server.
  */
 @Parameters(commandDescription = "Start an filestore server")
-public class FileStoreServer extends SubCommand {
+public class FileStoreServerSubCommand extends SubCommand {
 
     @Parameter(names = {"--id", "-i"}, description = "Raft id of this server", required = true)
     private String id;
@@ -100,7 +99,8 @@ public class FileStoreServer extends SubCommand {
         RaftGroup raftGroup = RaftGroup.valueOf(RaftGroupId.valueOf(ByteString.copyFromUtf8(raftGroupId)), raftPeers);
         RaftServer raftServer = RaftServer.newBuilder()
                 .setServerId(RaftPeerId.valueOf(id))
-                .setStateMachine(new FileStoreStateMachine(raftProperties)).setProperties(raftProperties)
+                .setStateMachine(new FileStoreStateMachine(raftProperties))
+                .setProperties(raftProperties)
                 .setGroup(raftGroup)
                 .build();
 

@@ -21,7 +21,7 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
 import org.apache.ratis.examples.arithmetic.cli.Arithmetic;
 import org.apache.ratis.examples.common.SubCommand;
-import org.apache.ratis.examples.filestore.cli.FileStore;
+import org.apache.ratis.examples.filestore.cli.FileStoreSubCommand;
 import org.apache.ratis.util.JavaUtils;
 
 import java.util.List;
@@ -79,8 +79,8 @@ public final class Runner {
 
     private static List<SubCommand> initializeCommands(String command) {
 
-        if (command.equalsIgnoreCase(JavaUtils.getClassSimpleName(FileStore.class))) {
-            return FileStore.getSubCommands();
+        if (command.equalsIgnoreCase(JavaUtils.getClassSimpleName(FileStoreSubCommand.class))) {
+            return FileStoreSubCommand.getSubCommands();
         }
 
         if (command.equalsIgnoreCase(JavaUtils.getClassSimpleName(Arithmetic.class))) {
