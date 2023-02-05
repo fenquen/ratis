@@ -118,12 +118,12 @@ public class FileStoreStateMachine extends BaseStateMachine {
         return writeRequestHeaderProto.getClose() ? future : null;
     }
 
+    // raft的server集群内部使用 用来leader和follower之间同步 读到之后调用自己write
     @Override
     public CompletableFuture<ByteString> read(LogEntryProto logEntryProto) {
         FileStoreRequestProto fileStoreRequestProto;
         try {
-            ByteString data = logEntryProto.getStateMachineLogEntry().getLogData();
-            fileStoreRequestProto = FileStoreRequestProto.parseFrom(data);
+            fileStoreRequestProto = FileStoreRequestProto.parseFrom(logEntryProto.getStateMachineLogEntry().getLogData());
         } catch (InvalidProtocolBufferException e) {
             return FileStoreCommon.completeExceptionally(logEntryProto.getIndex(), "Failed to parse data, entry=" + logEntryProto, e);
         }
@@ -143,6 +143,7 @@ public class FileStoreStateMachine extends BaseStateMachine {
         return future.thenApply(ReadReplyProto::getData);
     }
 
+    // 应对客户端的read
     @Override
     public CompletableFuture<Message> query(Message request) {
         ReadRequestProto readRequestProto;
@@ -156,7 +157,62 @@ public class FileStoreStateMachine extends BaseStateMachine {
         return (readRequestProto.getIsWatch() ?
                 fileStore.watch(path) :
                 fileStore.read(path, readRequestProto.getOffset(), readRequestProto.getLength(), true))
+                .thenApply(readReplyProto -> Message.valueOf(readReplyProto.toByteString()));
+    }
+
+    @Override
+    public CompletableFuture<Message> applyTransaction(TransactionContext transactionContext) {
+        LogEntryProto logEntryProto = transactionContext.getLogEntry();
+
+        long index = logEntryProto.getIndex();
+
+        updateLastAppliedTermIndex(logEntryProto.getTerm(), index);
+
+        StateMachineLogEntryProto stateMachineLogEntryProto = logEntryProto.getStateMachineLogEntry();
+
+        FileStoreRequestProto fileStoreRequestProto;
+        try {
+            fileStoreRequestProto = FileStoreRequestProto.parseFrom(stateMachineLogEntryProto.getLogData());
+        } catch (InvalidProtocolBufferException e) {
+            return FileStoreCommon.completeExceptionally(index, "Failed to parse logData in" + stateMachineLogEntryProto, e);
+        }
+
+        switch (fileStoreRequestProto.getRequestCase()) {
+            case DELETE:
+                return delete(index, fileStoreRequestProto.getDelete());
+            case WRITEHEADER:
+                return writeCommit(index, fileStoreRequestProto.getWriteHeader(), stateMachineLogEntryProto.getStateMachineEntry().getStateMachineData().size());
+            case STREAM:
+                return streamCommit(fileStoreRequestProto.getStream());
+            case WRITE:
+                // WRITE should not happen here since
+                // startTransaction converts WRITE requests to WRITEHEADER requests.
+            default:
+                LOG.error(getId() + ": Unexpected request case " + fileStoreRequestProto.getRequestCase());
+                return FileStoreCommon.completeExceptionally(index, "Unexpected request case " + fileStoreRequestProto.getRequestCase());
+        }
+    }
+
+    private CompletableFuture<Message> delete(long index,
+                                              DeleteRequestProto deleteRequestProto) {
+        String path = deleteRequestProto.getPath().toStringUtf8();
+        return fileStore.delete(index, path).thenApply(resolved ->
+                Message.valueOf(DeleteReplyProto.newBuilder().setResolvedPath(FileStoreCommon.toByteString(resolved)).build().toByteString(),
+                        () -> "Message:" + resolved));
+    }
+
+    private CompletableFuture<Message> writeCommit(long index,
+                                                   WriteRequestHeaderProto writeRequestHeaderProto,
+                                                   int size) {
+        String path = writeRequestHeaderProto.getPath().toStringUtf8();
+        return fileStore.submitCommit(index, path, writeRequestHeaderProto.getClose(), writeRequestHeaderProto.getOffset(), size)
                 .thenApply(reply -> Message.valueOf(reply.toByteString()));
+    }
+
+    private CompletableFuture<Message> streamCommit(StreamWriteRequestProto stream) {
+        String path = stream.getPath().toStringUtf8();
+        long size = stream.getLength();
+        return fileStore.streamCommit(path, size).thenApply(reply -> Message.valueOf(reply.toByteString()));
     }
 
     private static class LocalStream implements DataStream {
@@ -201,57 +257,6 @@ public class FileStoreStateMachine extends BaseStateMachine {
     public CompletableFuture<?> link(DataStream stream, LogEntryProto entry) {
         LOG.info("linking {}", stream);
         return fileStore.streamLink(stream);
-    }
-
-    @Override
-    public CompletableFuture<Message> applyTransaction(TransactionContext transactionContext) {
-        LogEntryProto logEntryProto = transactionContext.getLogEntry();
-
-        long index = logEntryProto.getIndex();
-
-        updateLastAppliedTermIndex(logEntryProto.getTerm(), index);
-
-        final StateMachineLogEntryProto smLog = logEntryProto.getStateMachineLogEntry();
-        final FileStoreRequestProto request;
-        try {
-            request = FileStoreRequestProto.parseFrom(smLog.getLogData());
-        } catch (InvalidProtocolBufferException e) {
-            return FileStoreCommon.completeExceptionally(index, "Failed to parse logData in" + smLog, e);
-        }
-
-        switch (request.getRequestCase()) {
-            case DELETE:
-                return delete(index, request.getDelete());
-            case WRITEHEADER:
-                return writeCommit(index, request.getWriteHeader(), smLog.getStateMachineEntry().getStateMachineData().size());
-            case STREAM:
-                return streamCommit(request.getStream());
-            case WRITE:
-                // WRITE should not happen here since
-                // startTransaction converts WRITE requests to WRITEHEADER requests.
-            default:
-                LOG.error(getId() + ": Unexpected request case " + request.getRequestCase());
-                return FileStoreCommon.completeExceptionally(index, "Unexpected request case " + request.getRequestCase());
-        }
-    }
-
-    private CompletableFuture<Message> delete(long index, DeleteRequestProto request) {
-        String path = request.getPath().toStringUtf8();
-        return fileStore.delete(index, path).thenApply(resolved ->
-                Message.valueOf(DeleteReplyProto.newBuilder().setResolvedPath(FileStoreCommon.toByteString(resolved)).build().toByteString(),
-                        () -> "Message:" + resolved));
-    }
-
-    private CompletableFuture<Message> writeCommit(long index, WriteRequestHeaderProto header, int size) {
-        String path = header.getPath().toStringUtf8();
-        return fileStore.submitCommit(index, path, header.getClose(), header.getOffset(), size)
-                .thenApply(reply -> Message.valueOf(reply.toByteString()));
-    }
-
-    private CompletableFuture<Message> streamCommit(StreamWriteRequestProto stream) {
-        String path = stream.getPath().toStringUtf8();
-        long size = stream.getLength();
-        return fileStore.streamCommit(path, size).thenApply(reply -> Message.valueOf(reply.toByteString()));
     }
 
 }

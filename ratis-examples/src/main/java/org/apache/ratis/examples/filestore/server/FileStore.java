@@ -126,12 +126,13 @@ public class FileStore implements Closeable {
                 LOG,
                 () -> {
                     FileInfo fileInfo = fileInfoMap.get(relative);
-                    ReadReplyProto.Builder reply = ReadReplyProto.newBuilder()
-                            .setResolvedPath(FileStoreCommon.toByteString(fileInfo.getRelativePath()))
-                            .setOffset(offset);
+                    ReadReplyProto.Builder readReplyProtoBuilder =
+                            ReadReplyProto.newBuilder()
+                                    .setResolvedPath(FileStoreCommon.toByteString(fileInfo.getRelativePath()))
+                                    .setOffset(offset);
 
                     ByteString bytes = fileInfo.read(this::getAbsPath, offset, length, readCommitted);
-                    return reply.setData(bytes).build();
+                    return readReplyProtoBuilder.setData(bytes).build();
                 },
                 name);
         return submitTask(task, readThreadPool);
@@ -139,12 +140,12 @@ public class FileStore implements Closeable {
 
     public CompletableFuture<Path> delete(long index, String relative) {
         Supplier<String> name = () -> "delete(" + relative + ") @" + getRaftPeerId() + ":" + index;
-        CheckedSupplier<Path, IOException> task = LogUtils.newCheckedSupplier(LOG, () -> {
-            FileInfo info = fileInfoMap.remove(relative);
-            FileUtils.delete(getAbsPath(info.getRelativePath()));
-            return info.getRelativePath();
+        CheckedSupplier<Path, IOException> deleteTask = LogUtils.newCheckedSupplier(LOG, () -> {
+            FileInfo fileInfo = fileInfoMap.remove(relative);
+            FileUtils.delete(getAbsPath(fileInfo.getRelativePath()));
+            return fileInfo.getRelativePath();
         }, name);
-        return submitTask(task, deleteThreadPool);
+        return submitTask(deleteTask, deleteThreadPool);
     }
 
     private <T> CompletableFuture<T> submitTask(CheckedSupplier<T, IOException> task,
@@ -173,7 +174,8 @@ public class FileStore implements Closeable {
             return FileStoreCommon.completeExceptionally(index, "Failed to write to " + relative, e);
         }
 
-        return underConstruction.submitCommitTask(offset, size, closeFunction, commitThreadPool, getRaftPeerId(), index)
+        return underConstruction
+                .submitCommitTask(offset, size, closeFunction, commitThreadPool, getRaftPeerId(), index)
                 .thenApply(n -> WriteReplyProto.newBuilder()
                         .setResolvedPath(FileStoreCommon.toByteString(underConstruction.getRelativePath()))
                         .setOffset(offset)

@@ -133,7 +133,7 @@ class LogAppenderDefault extends LogAppenderBase {
           LOG.info("{}: followerNextIndex = {} but logStartIndex = {}, send snapshot {} to follower",
               this, getFollower().getNextIndex(), getRaftLog().getStartIndex(), snapshot);
 
-          final InstallSnapshotReplyProto r = installSnapshot(snapshot);
+          final InstallSnapshotReplyProto r = installSnapshot(snapshot); // 向flower发送请求去installSnapshot
           if (r != null) {
             switch (r.getResult()) {
               case NOT_LEADER:

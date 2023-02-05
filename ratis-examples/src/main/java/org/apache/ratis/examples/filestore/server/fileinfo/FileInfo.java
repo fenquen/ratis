@@ -38,7 +38,7 @@ public abstract class FileInfo {
         throw new UnsupportedOperationException();
     }
 
-    public ByteString read(CheckedFunction<Path, Path, IOException> resolver,
+    public ByteString read(CheckedFunction<Path, Path, IOException> absPathGetter,
                            long offset,
                            long length,
                            boolean readCommitted) throws IOException {
@@ -52,11 +52,11 @@ public abstract class FileInfo {
                     + " + length (=" + length + ") > size = " + getWriteSize() + ", path=" + getRelativePath());
         }
 
-        try (SeekableByteChannel byteChannel = Files.newByteChannel(resolver.apply(relativePath), StandardOpenOption.READ)) {
-            ByteBuffer buffer = ByteBuffer.allocateDirect(FileStoreCommon.getChunkSize(length));
-            byteChannel.position(offset).read(buffer);
-            buffer.flip();
-            return ByteString.copyFrom(buffer);
+        try (SeekableByteChannel byteChannel = Files.newByteChannel(absPathGetter.apply(relativePath), StandardOpenOption.READ)) {
+            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(FileStoreCommon.getChunkSize(length));
+            byteChannel.position(offset).read(byteBuffer);
+            byteBuffer.flip();
+            return ByteString.copyFrom(byteBuffer);
         }
     }
 }

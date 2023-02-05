@@ -112,7 +112,7 @@ public abstract class FileStoreClientSubCommand extends SubCommand {
     private List<FileStoreClient> buildFileStoreClientList(RaftProperties raftProperties) {
         List<FileStoreClient> fileStoreClientList = new ArrayList<>();
         for (int i = 0; i < numClients; i++) {
-            final RaftGroup raftGroup = RaftGroup.valueOf(RaftGroupId.valueOf(ByteString.copyFromUtf8(raftGroupId)), raftPeers);
+            RaftGroup raftGroup = RaftGroup.valueOf(RaftGroupId.valueOf(ByteString.copyFromUtf8(raftGroupId)), raftPeers);
 
             RaftClient.Builder builder = RaftClient.newBuilder();
             builder.setProperties(raftProperties);
