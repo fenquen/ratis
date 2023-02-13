@@ -1,0 +1,1630 @@
+<project version="4">
+  <component name="BookmarksManager">
+    <option name="groups">
+      <GroupState>
+        <option name="bookmarks">
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/RaftServerImpl.java" />
+              <entry key="line" value="1642" />
+            </attributes>
+            <option name="description" value="role.getLeaderState().ifPresent(leader -&gt; leader.replyPendingRequest(logIndex, r));" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/leader/LogAppenderDefault.java" />
+              <entry key="line" value="151" />
+            </attributes>
+            <option name="description" value="要是尚未弄snapshot会使用了read" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/leader/LogAppenderDefault.java" />
+              <entry key="line" value="135" />
+            </attributes>
+            <option name="description" value="installSnapshot(snapshot)" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/SnapshotInstallationHandler.java" />
+              <entry key="line" value="119" />
+            </attributes>
+            <option name="description" value="reply = checkAndInstallSnapshot(request, leaderId);" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/SnapshotInstallationHandler.java" />
+              <entry key="line" value="180" />
+            </attributes>
+            <option name="description" value="state.installSnapshot(request);" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/SnapshotInstallationHandler.java" />
+              <entry key="line" value="185" />
+            </attributes>
+            <option name="description" value="state.reloadStateMachine(lastIncludedIndex);" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/StateMachineUpdater.java" />
+              <entry key="line" value="178" />
+            </attributes>
+            <option name="description" value="reload();" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/StateMachineUpdater.java" />
+              <entry key="line" value="215" />
+            </attributes>
+            <option name="description" value="-stateMachine.reinitialize();" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/StateMachineUpdater.java" />
+              <entry key="line" value="181" />
+            </attributes>
+            <option name="description" value="applyLog();" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/StateMachineUpdater.java" />
+              <entry key="line" value="238" />
+            </attributes>
+            <option name="description" value="-server.applyLogToStateMachine(next);" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/RaftServerImpl.java" />
+              <entry key="line" value="1671" />
+            </attributes>
+            <option name="description" value="--stateMachine.applyTransaction(trx);" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/StateMachineUpdater.java" />
+              <entry key="line" value="182" />
+            </attributes>
+            <option name="description" value="checkAndTakeSnapshot(futures);" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/RaftServerImpl.java" />
+              <entry key="line" value="853" />
+            </attributes>
+            <option name="description" value="RaftClientRequest如果是read会调用statemachine的query" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/client/LoadGen.java" />
+              <entry key="line" value="97" />
+            </attributes>
+            <option name="description" value="fileStoreClient.writeAsync()" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStoreStateMachine.java" />
+              <entry key="line" value="108" />
+            </attributes>
+            <option name="description" value="fileStore.write()" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStore.java" />
+              <entry key="line" value="212" />
+            </attributes>
+            <option name="description" value="underConstruction.create()" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+          <BookmarkState>
+            <attributes>
+              <entry key="url" value="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStoreStateMachine.java" />
+              <entry key="line" value="136" />
+            </attributes>
+            <option name="description" value="fileStore.read()" />
+            <option name="provider" value="com.intellij.ide.bookmark.providers.LineBookmarkProvider" />
+          </BookmarkState>
+        </option>
+        <option name="name" value="ratis" />
+      </GroupState>
+    </option>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStoreStateMachine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="89">
+              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/ServerState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6749">
+              <caret line="454" column="38" selection-start-line="454" selection-start-column="38" selection-end-line="454" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/storage/SnapshotManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="79" column="14" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/program/azul/src.zip!/java/security/DigestOutputStream.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/StateMachineUpdater.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3281">
+              <caret line="238" column="43" selection-start-line="238" selection-start-column="43" selection-end-line="238" selection-end-column="43" />
+              <folding>
+                <element signature="e#10319#10949#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/SnapshotManagementRequestHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1428">
+              <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/statemachine/impl/SimpleStateMachineStorage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/test/java/org/apache/ratis/InstallSnapshotFromLeaderTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4267">
+              <caret line="301" column="18" selection-start-line="301" selection-start-column="18" selection-end-line="301" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/raftlog/segmented/SegmentedRaftLog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3757">
+              <caret line="270" column="28" selection-start-line="270" selection-start-column="28" selection-end-line="270" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/raftlog/segmented/LogSegment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5032">
+              <caret line="339" column="21" selection-start-line="339" selection-start-column="21" selection-end-line="339" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/raftlog/segmented/LogSegmentStartEnd.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1377">
+              <caret line="105" column="17" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/program/azul/src.zip!/java/util/concurrent/CompletableFuture.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29857">
+              <caret line="1993" column="36" selection-start-line="1993" selection-start-column="36" selection-end-line="1993" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/leader/LogAppenderBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/leader/InstallSnapshotRequests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1853">
+              <caret line="143" column="27" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/server/raftlog/RaftLog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/raftlog/memory/MemoryRaftLog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1309">
+              <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/raftlog/RaftLogBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1819">
+              <caret line="145" column="14" selection-start-line="145" selection-start-column="14" selection-end-line="145" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/server/raftlog/RaftLogIndex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/raftlog/LogProtoUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1904">
+              <caret line="143" column="23" selection-start-line="143" selection-start-column="23" selection-end-line="143" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/leader/LogAppenderDefault.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2057">
+              <caret line="151" selection-start-line="151" selection-end-line="151" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/server/protocol/RaftServerProtocol.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-grpc/src/main/java/org/apache/ratis/grpc/server/GrpcService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4675">
+              <caret line="321" column="35" selection-start-line="321" selection-start-column="35" selection-end-line="321" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/server/leader/LogAppender.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1513">
+              <caret line="120" column="69" selection-start-line="120" selection-start-column="69" selection-end-line="120" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/leader/LogAppenderDaemon.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/program/azul/src.zip!/java/lang/Thread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4869">
+              <caret line="700" column="29" selection-start-line="700" selection-start-column="29" selection-end-line="700" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-common/src/main/java/org/apache/ratis/util/Daemon.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/server/RaftServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1309">
+              <caret line="119" column="16" selection-start-line="119" selection-start-column="16" selection-end-line="119" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/server/leader/FollowerInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/FollowerInfoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1598">
+              <caret line="118" column="8" selection-start-line="118" selection-start-column="8" selection-end-line="118" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-proto/pom.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-proto/src/main/proto/Examples.proto">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8041">
+              <caret line="473" column="25" selection-start-line="473" selection-start-column="25" selection-end-line="473" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/repository/org/xolstice/maven/plugins/protobuf-maven-plugin/0.5.1/protobuf-maven-plugin-0.5.1.pom">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/client/LoadGen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1377">
+              <caret line="97" column="65" selection-start-line="97" selection-start-column="65" selection-end-line="97" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/client/FileStoreClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2346">
+              <caret line="165" column="57" selection-start-line="165" selection-start-column="57" selection-end-line="165" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-common/src/main/java/org/apache/ratis/protocol/Message.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/repository/org/apache/ratis/ratis-thirdparty-misc/1.0.3/ratis-thirdparty-misc-1.0.3.jar!/org/apache/ratis/thirdparty/com/google/protobuf/AbstractMessage.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/repository/org/apache/ratis/ratis-thirdparty-misc/1.0.3/ratis-thirdparty-misc-1.0.3.jar!/org/apache/ratis/thirdparty/com/google/protobuf/ByteString.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1802">
+              <caret line="128" column="29" selection-start-line="128" selection-start-column="29" selection-end-line="128" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/RaftServerImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26843">
+              <caret line="1671" column="75" selection-start-line="1671" selection-start-column="75" selection-end-line="1671" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/RoleInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="74" column="35" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/LeaderStateImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="16150">
+              <caret line="1031" column="7" selection-start-line="1031" selection-start-column="7" selection-end-line="1031" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-grpc/src/main/java/org/apache/ratis/grpc/server/GrpcServerProtocolService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3502">
+              <caret line="241" column="56" selection-start-line="241" selection-start-column="56" selection-end-line="241" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-netty/src/main/java/org/apache/ratis/netty/server/NettyRpcService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3179">
+              <caret line="238" column="74" selection-start-line="238" selection-start-column="74" selection-end-line="238" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/RaftServerProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9758">
+              <caret line="639" column="47" selection-start-line="639" selection-start-column="47" selection-end-line="639" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/SnapshotInstallationHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2329">
+              <caret line="185" column="22" selection-start-line="185" selection-start-column="22" selection-end-line="185" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-grpc/src/main/java/org/apache/ratis/grpc/server/GrpcClientProtocolService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3009">
+              <caret line="222" column="40" selection-start-line="222" selection-start-column="40" selection-end-line="222" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-proto/target/generated-sources/org/apache/ratis/proto/RaftProtos.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185368">
+              <caret line="10905" column="70" selection-start-line="10905" selection-start-column="70" selection-end-line="10905" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-proto/src/main/proto/Raft.proto">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3468">
+              <caret line="204" column="8" selection-start-line="204" selection-start-column="8" selection-end-line="204" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-client/src/main/java/org/apache/ratis/client/api/BlockingApi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-client/src/main/java/org/apache/ratis/client/impl/BlockingImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="63" column="40" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-common/src/main/java/org/apache/ratis/protocol/RaftClientRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/client/FileStoreClientSubCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1564">
+              <caret line="122" column="50" selection-start-line="122" selection-start-column="50" selection-end-line="122" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SHOW_PREVIEW" is_vertical_split="false">
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStoreServerSubCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-common/src/main/java/org/apache/ratis/util/NetUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/FileStoreCommon.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-common/src/main/java/org/apache/ratis/util/JavaUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3791">
+              <caret line="265" column="11" selection-start-line="265" selection-start-column="11" selection-end-line="265" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/server/RaftServerConfigKeys.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8007">
+              <caret line="502" column="21" selection-start-line="502" selection-start-column="21" selection-end-line="502" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/common/SubCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/bin/start-all.sh">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/bin/stop-all.sh">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/bin/client.sh">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/bin/common.sh">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/bin/server.sh">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/pom.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-tools/pom.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/statemachine/impl/BaseStateMachine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2091">
+              <caret line="165" column="29" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/statemachine/StateMachineStorage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/statemachine/StateMachine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6443">
+              <caret line="421" column="7" selection-start-line="421" selection-start-column="7" selection-end-line="421" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/counter/CounterStateMachine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1275">
+              <caret line="114" column="7" selection-start-line="114" selection-start-column="7" selection-end-line="114" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/arithmetic/ArithmeticStateMachine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="79" column="14" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/statemachine/SnapshotInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/server/storage/FileInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2448">
+              <caret line="178" column="40" selection-start-line="178" selection-start-column="40" selection-end-line="178" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/fileinfo/FileInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-common/src/main/java/org/apache/ratis/util/FileUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2261">
+              <caret line="159" column="14" selection-start-line="159" selection-start-column="14" selection-end-line="159" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ratis-proto/target/generated-sources/org/apache/ratis/proto/ExamplesProtos.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88553">
+              <caret line="5210" column="43" selection-start-line="5210" selection-start-column="28" selection-end-line="5210" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/repository/org/apache/ratis/ratis-thirdparty-misc/1.0.3/ratis-thirdparty-misc-1.0.3.jar!/org/apache/ratis/thirdparty/com/google/protobuf/GeneratedMessageV3.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTypeUsageLocalSummary">
+    <fileType name="CLASS">
+      <summary usageCount="20" lastUsed="1676247385570" />
+    </fileType>
+    <fileType name="JAVA">
+      <summary usageCount="476" lastUsed="1676247384902" />
+    </fileType>
+    <fileType name="Markdown">
+      <summary usageCount="10" lastUsed="1676247384563" />
+    </fileType>
+    <fileType name="Properties">
+      <summary usageCount="2" lastUsed="1675072792683" />
+    </fileType>
+    <fileType name="Shell Script">
+      <summary usageCount="21" lastUsed="1676247384748" />
+    </fileType>
+    <fileType name="XML">
+      <summary usageCount="25" lastUsed="1676248421029" />
+    </fileType>
+    <fileType name="protobuf">
+      <summary usageCount="18" lastUsed="1676247384083" />
+    </fileType>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>FileStoreRequestProto</find>
+      <find>final</find>
+      <find>RaftClientRequest</find>
+      <find>takeSnapshot</find>
+      <find>getLogData</find>
+      <find>shade</find>
+    </findStrings>
+  </component>
+  <component name="GitSEFilterConfiguration">{
+}</component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/cli/FileStoreServer.java" />
+      <option value="$PROJECT_DIR$/pom.xml" />
+      <option value="$PROJECT_DIR$/ratis-proto/src/main/proto/Examples.proto" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/FileInfo.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/fileinfo/ReadOnly.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/FileStoreDataChannel.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/FileStoreStateMachine.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/fileinfo/FileInfo.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/fileinfo/UnderConstruction.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/fileinfo/WriteInfo.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/FileMap.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/fileinfo/Watch.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/FileInfoMap.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/cli/DataStream.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/cli/FileStoreClientSubCommand.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/cli/LoadGen.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/FileStoreClient.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/cli/FileStoreSubCommand.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/client/LoadGen.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/FileStore.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/FileStoreCommon.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStoreDataChannel.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/fileinfo/UnderConstruction.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileInfoMap.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/fileinfo/ReadOnly.java" />
+      <option value="$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/statemachine/impl/BaseStateMachine.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/resources/conf.properties" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/test/resources/log4j.properties" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStoreServerSubCommand.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/client/DataStream.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/fileinfo/FileInfo.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/client/FileStoreClient.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStore.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/client/FileStoreClientSubCommand.java" />
+      <option value="$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStoreStateMachine.java" />
+      <option value="$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/leader/LogAppenderDefault.java" />
+    </changedPaths>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LanguageUsageStatistics">
+    <language id="JAVA">
+      <summary usageCount="476" lastUsage="1676247384902" />
+    </language>
+    <language id="Markdown">
+      <summary usageCount="10" lastUsage="1676247384563" />
+    </language>
+    <language id="Properties">
+      <summary usageCount="2" lastUsage="1675072792683" />
+    </language>
+    <language id="Shell Script">
+      <summary usageCount="21" lastUsage="1676247384748" />
+    </language>
+    <language id="XML">
+      <summary usageCount="25" lastUsage="1676248421029" />
+    </language>
+    <language id="protobuf">
+      <summary usageCount="18" lastUsage="1676247384083" />
+    </language>
+  </component>
+  <component name="MavenProjectNavigator">
+    <option name="groupStructurally" value="true" />
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Profiles" type="6783ec58:MavenProjectsStructure$ProfilesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Apache Ratis" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Apache Ratis" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-examples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="filestore" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="filestore" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="filestore" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="filestore" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="fileinfo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-proto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-proto" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-proto" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-proto" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="proto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-server-api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-server-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-server-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-server-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-server-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-server-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="statemachine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis-server-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ratis" type="462c0819:PsiDirectoryNode" />
+              <item name="statemachine" type="462c0819:PsiDirectoryNode" />
+              <item name="StateMachine" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.apache.ratis:ratis-thirdparty-misc:1.0.3" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.apache.ratis:ratis-thirdparty-misc:1.0.3" type="70bed36:NamedLibraryElementNode" />
+              <item name="ratis-thirdparty-misc-1.0.3.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.apache.ratis:ratis-thirdparty-misc:1.0.3" type="70bed36:NamedLibraryElementNode" />
+              <item name="ratis-thirdparty-misc-1.0.3.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="thirdparty" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.apache.ratis:ratis-thirdparty-misc:1.0.3" type="70bed36:NamedLibraryElementNode" />
+              <item name="ratis-thirdparty-misc-1.0.3.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="thirdparty" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ratis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.apache.ratis:ratis-thirdparty-misc:1.0.3" type="70bed36:NamedLibraryElementNode" />
+              <item name="ratis-thirdparty-misc-1.0.3.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="thirdparty" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="google" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="95143000" />
+  </component>
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22646104" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.33021653" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.33021653" />
+      <window_info anchor="bottom" id="Run" order="2" show_stripe_button="false" weight="0.33021653" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="4" />
+      <window_info anchor="bottom" id="Tool Output" order="5" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Problems View" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Services" order="9" />
+      <window_info anchor="bottom" id="Profiler" order="10" />
+      <window_info anchor="bottom" id="Statistic" order="11" weight="0.33021653" />
+      <window_info anchor="bottom" id="Build" order="12" weight="0.33021653" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="13" />
+      <window_info anchor="bottom" id="Dependencies" order="14" />
+      <window_info anchor="bottom" id="Notifications" order="15" weight="0.25" />
+      <window_info anchor="bottom" id="Structure" order="16" />
+      <window_info anchor="bottom" id="Database" order="17" />
+      <window_info anchor="right" id="Maven" order="0" weight="0.32981604" />
+      <window_info anchor="right" id="Bookmarks" order="1" weight="0.30546534" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22646104" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.33021653" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33021653" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="4" />
+      <window_info anchor="bottom" id="Tool Output" order="5" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Problems View" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Services" order="9" />
+      <window_info anchor="bottom" id="Profiler" order="10" />
+      <window_info anchor="bottom" id="Statistic" order="11" weight="0.33021653" />
+      <window_info anchor="bottom" id="Build" order="12" weight="0.33021653" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="13" />
+      <window_info anchor="bottom" id="Dependencies" order="14" />
+      <window_info anchor="bottom" id="Notifications" order="15" weight="0.25" />
+      <window_info anchor="bottom" id="Structure" order="16" />
+      <window_info anchor="bottom" id="Database" order="17" />
+      <window_info anchor="right" id="Maven" order="0" weight="0.32981604" />
+      <window_info anchor="right" id="Bookmarks" order="1" weight="0.17775974" />
+    </layout-to-restore>
+    <recentWindows>
+      <value>Project</value>
+      <value>Bookmarks</value>
+      <value>Version Control</value>
+      <value>Maven</value>
+      <value>Run</value>
+      <value>Find</value>
+      <value>Statistic</value>
+      <value>Build</value>
+    </recentWindows>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="656" y="564" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1675044154566">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="656" y="564" key="#com.intellij.ide.util.TreeClassChooserDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1675044154566" />
+    <state x="829" y="474" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1675043612426">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="829" y="474" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1675043612426" />
+    <state x="756" y="390" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog" timestamp="1675043613823">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="756" y="390" key="#com.intellij.refactoring.move.moveInner.MoveInnerDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1675043613823" />
+    <state x="629" y="572" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1675056758220">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="629" y="572" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1675056758220" />
+    <state x="799" y="399" width="838" height="352" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1675137902326">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="799" y="399" width="838" height="352" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1675137902326" />
+    <state x="784" y="308" key="FileChooserDialogImpl" timestamp="1675048619014">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="784" y="308" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1675048619014" />
+    <state width="1804" height="307" key="GridCell.Tab.0.bottom" timestamp="1675390396685">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1804" height="307" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1675390396685" />
+    <state width="1804" height="307" key="GridCell.Tab.0.center" timestamp="1675390396685">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1804" height="307" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1675390396685" />
+    <state width="1804" height="307" key="GridCell.Tab.0.left" timestamp="1675390396685">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1804" height="307" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1675390396685" />
+    <state width="1804" height="307" key="GridCell.Tab.0.right" timestamp="1675390396685">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1804" height="307" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1675390396685" />
+    <state x="254" y="281" key="caller.chooser.dialog" timestamp="1675060138595">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="254" y="281" key="caller.chooser.dialog/72.27.1848.1053@72.27.1848.1053" timestamp="1675060138595" />
+    <state x="596" y="253" width="800" height="647" key="new project wizard" timestamp="1675298801513">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="596" y="253" width="800" height="647" key="new project wizard/72.27.1848.1053@72.27.1848.1053" timestamp="1675298801513" />
+    <state x="659" y="259" width="672" height="686" key="search.everywhere.popup" timestamp="1675496120521">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="659" y="259" width="672" height="686" key="search.everywhere.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1675496120521" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ratis-proto/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-proto/src/main/proto/Examples.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8041">
+          <caret line="473" column="25" selection-start-line="473" selection-start-column="25" selection-end-line="473" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/repository/org/xolstice/maven/plugins/protobuf-maven-plugin/0.5.1/protobuf-maven-plugin-0.5.1.pom">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/client/LoadGen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="97" column="65" selection-start-line="97" selection-start-column="65" selection-end-line="97" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/client/FileStoreClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2346">
+          <caret line="165" column="57" selection-start-line="165" selection-start-column="57" selection-end-line="165" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-common/src/main/java/org/apache/ratis/protocol/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/repository/org/apache/ratis/ratis-thirdparty-misc/1.0.3/ratis-thirdparty-misc-1.0.3.jar!/org/apache/ratis/thirdparty/com/google/protobuf/AbstractMessage.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/repository/org/apache/ratis/ratis-thirdparty-misc/1.0.3/ratis-thirdparty-misc-1.0.3.jar!/org/apache/ratis/thirdparty/com/google/protobuf/ByteString.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1802">
+          <caret line="128" column="29" selection-start-line="128" selection-start-column="29" selection-end-line="128" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/RaftServerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26843">
+          <caret line="1671" column="75" selection-start-line="1671" selection-start-column="75" selection-end-line="1671" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/RoleInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="74" column="35" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/LeaderStateImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16150">
+          <caret line="1031" column="7" selection-start-line="1031" selection-start-column="7" selection-end-line="1031" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-grpc/src/main/java/org/apache/ratis/grpc/server/GrpcServerProtocolService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3502">
+          <caret line="241" column="56" selection-start-line="241" selection-start-column="56" selection-end-line="241" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-netty/src/main/java/org/apache/ratis/netty/server/NettyRpcService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3179">
+          <caret line="238" column="74" selection-start-line="238" selection-start-column="74" selection-end-line="238" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/RaftServerProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9758">
+          <caret line="639" column="47" selection-start-line="639" selection-start-column="47" selection-end-line="639" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/server/impl/SnapshotInstallationHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2329">
+          <caret line="185" column="22" selection-start-line="185" selection-start-column="22" selection-end-line="185" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-grpc/src/main/java/org/apache/ratis/grpc/server/GrpcClientProtocolService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3009">
+          <caret line="222" column="40" selection-start-line="222" selection-start-column="40" selection-end-line="222" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-proto/target/generated-sources/org/apache/ratis/proto/RaftProtos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185368">
+          <caret line="10905" column="70" selection-start-line="10905" selection-start-column="70" selection-end-line="10905" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-proto/src/main/proto/Raft.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3468">
+          <caret line="204" column="8" selection-start-line="204" selection-start-column="8" selection-end-line="204" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-client/src/main/java/org/apache/ratis/client/api/BlockingApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-client/src/main/java/org/apache/ratis/client/impl/BlockingImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="63" column="40" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-common/src/main/java/org/apache/ratis/protocol/RaftClientRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/client/FileStoreClientSubCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="122" column="50" selection-start-line="122" selection-start-column="50" selection-end-line="122" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SHOW_PREVIEW" is_vertical_split="false">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStoreServerSubCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-common/src/main/java/org/apache/ratis/util/NetUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/FileStoreCommon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-common/src/main/java/org/apache/ratis/util/JavaUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3791">
+          <caret line="265" column="11" selection-start-line="265" selection-start-column="11" selection-end-line="265" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/server/RaftServerConfigKeys.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8007">
+          <caret line="502" column="21" selection-start-line="502" selection-start-column="21" selection-end-line="502" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/common/SubCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/bin/start-all.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/bin/stop-all.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/bin/client.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/bin/common.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/bin/server.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-tools/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-server/src/main/java/org/apache/ratis/statemachine/impl/BaseStateMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2091">
+          <caret line="165" column="29" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/statemachine/StateMachineStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/statemachine/StateMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6443">
+          <caret line="421" column="7" selection-start-line="421" selection-start-column="7" selection-end-line="421" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/counter/CounterStateMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="114" column="7" selection-start-line="114" selection-start-column="7" selection-end-line="114" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/arithmetic/ArithmeticStateMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="79" column="14" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/statemachine/SnapshotInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-server-api/src/main/java/org/apache/ratis/server/storage/FileInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="178" column="40" selection-start-line="178" selection-start-column="40" selection-end-line="178" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/fileinfo/FileInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-common/src/main/java/org/apache/ratis/util/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2261">
+          <caret line="159" column="14" selection-start-line="159" selection-start-column="14" selection-end-line="159" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-proto/target/generated-sources/org/apache/ratis/proto/ExamplesProtos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88553">
+          <caret line="5210" column="43" selection-start-line="5210" selection-start-column="28" selection-end-line="5210" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/repository/org/apache/ratis/ratis-thirdparty-misc/1.0.3/ratis-thirdparty-misc-1.0.3.jar!/org/apache/ratis/thirdparty/com/google/protobuf/GeneratedMessageV3.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ratis-examples/src/main/java/org/apache/ratis/examples/filestore/server/FileStoreStateMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="62" column="26" lean-forward="true" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
